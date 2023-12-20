@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../js/script.js"></script>
+    </head>
+
+    <body  >
+<!---------        header       ---------->
+<header class="container-fluid">
+        <nav class="navibar">
+        <a href="../images/logo.jpg"><img class="logo" src="../images/logo.jpg" ></a>
+        <a class="nav-item" href="../htmls/home.html">Home</a>
+
+        </nav> 
+     
+</header>
+<br>
+<!-- Content -->
+
+<section class="container-fluid classImages" >
+
+    <h1 class="sign-text text-align">Admin Page Validation</h1>
+
+      
+            <h4 class="modal-title text-align">To enter the Admin page, You have to enter passwords to get access</h4>
+            <br><br>
+            <div class="admin-valid">
+            <form onSubmit="return adminvalidation();" method="GET" >
+              <label for="password">Password : </label>
+              <input type="password" id="admin-pass" placeholder="Please Enter passwords...">
+              <p>(password = 12345678)</p>
+              <br>
+&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-success">Enter ></button>
+            </form>
+        </div>    
+
+
+
+</section>
+
+<br><br><br>
+
+<!-- Content end -->
+
+<!----------    footer       ------>
+<footer class="container-fluid " style="background-color: beige;">
+
+    <div class="row">
+
+        <div class="col-sm-4">
+            <p style="margin-top: 20px;">Phone Numnber: xx xxxxxxxxxx</p>
+            <a href="mailto:dobumartialarts@outook.org" class="footer-link">Email Address: dobumartialarts@outook.org</a><br><br>
+            <p> &copy; copyright by DoBu Martial Arts Org</p>
+        </div>
+
+        <div class="col-sm-4">
+
+        </div>
+
+        <div class="col-sm-4" style="clear: both;">
+            <a href="https://www.facebook.com" ><img class="footer-logo" src="../images/facebook.png" alt="Facebook Logo"></a>
+            <a href="https://www.linkedin.com/login" ><img class="footer-logo" src="../images/linkedin.png" alt="LinkedIn Logo"></a>
+            <a href="https://www.instagram.com" ><img class="footer-logo" src="../images/instragram.png" alt="Instragram Logo"></a>
+            <br><br><br><br>
+            <div style="float: right;">
+            <a class="footer-link " href="#">Privacy&Policy</a>
+            <a class="footer-link" href="../htmls/sitemap.html">Site Map</a>
+            </div>
+        </div>
+      </div>
+
+</footer>
+
+    </body>
+</html>

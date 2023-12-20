@@ -1,0 +1,210 @@
+/* Navigation bar */
+
+img.logo{
+   width: 8%;
+    height: 8%;
+    float: left;
+    margin-bottom: 30px;
+
+}
+.nav-item{
+    background-color: rgba(237, 208, 42, 0.536);
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 10px;
+    color: black;
+    margin: 35px 25px 20px 20px;
+    display: inline-block;
+    float: left;
+}
+.nav-item:hover{
+    background-color: rgb(255, 217, 0);
+    color: rgb(121, 151, 250);
+}
+.nav::after {
+    content: "";
+    clear: both;
+
+  }
+.nav-login{
+    background-color: rgba(237, 208, 42, 0.536);
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 10px;
+    color: black;
+    margin: 35px 25px 0 20px;
+    display: inline-block;
+    float: right;
+}
+.select{
+    background-color: rgba(240, 237, 225, 0.536);
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 10px;
+    color: black;
+    margin: 35px 25px 20px 20px;
+    display: inline-block;
+    float: right;
+}
+.nav-login:hover{
+    background-color: rgb(255, 217, 0);
+    color: rgb(121, 151, 250);
+}
+.select:hover{
+    background-color: rgb(255, 217, 0);
+    color: rgb(121, 151, 250);
+}
+.text-align{
+    text-align: center;
+}
+/* body 
+--------------------------------*/
+body{
+    background-color: rgb(255, 255, 255);
+}
+
+/* Home */
+.classImages{
+    clear: both;
+    margin:auto;
+}
+@media screen and (max-width: 900px) {
+    img.logo {
+      width: 30%;
+      height: auto;
+      position: relative;
+    }
+}
+@media screen and (max-width: 400px) {
+    img.logo .select .nav-item .grid-item {
+          text-align: center;
+          float: none;
+        }
+    img.logo{
+        width:30%;
+    }
+    .admin-valid{
+        padding: 0px;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 80px;
+    }
+    }
+.grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto auto ;
+        gap: 10px;
+        background-color: rgba(240, 237, 225, 0.536);
+        padding: 10px;
+        margin-bottom: 0px;
+        overflow: auto;
+    
+      }
+
+.grid-container > .grid-item{
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        padding: 10px 10px;
+        border-radius: 30px;
+        max-width: 900px;
+        overflow: auto;
+        
+      }
+.grid-container > iframe{
+        margin: 60px 0 0 0 ;
+        padding: 20px;
+        border-radius: 30px;
+      }
+
+/* -----------------
+---------------*/
+/* footer----------
+-------*/
+.footer-link, .footer-list{
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 10px;
+    color: rgb(139, 136, 57);
+    display: inline-block;
+    list-style-type: none;
+}
+.footer-logo{
+    margin-top: 20px;
+    width:10%;
+    display: inline-block;
+    margin-right: 20px;
+    margin-left: 20px;
+    float: right;
+    
+}
+.footer-logo:hover{
+    opacity: 0.5;
+}
+
+/*------ about us ------*/
+.dobuimg{
+    border-radius: 50px;
+    margin: auto;
+}
+
+/* ----- contact us ----*/
+.contact-text{
+border-radius: 100px;
+padding:30px;
+background-color: rgba(255, 217, 0, 0.149);
+color: rgba(41, 99, 148, 0.797);
+}
+
+/*----- fitness& self----*/
+.row-box{
+    margin-bottom: 30px ; 
+    background-color: rgba(0, 0, 0, 0.462);
+    padding: 30px;
+    border-radius: 50px;
+    color: aliceblue;
+}
+.achieved-list{
+    list-style-type: none;
+    text-align: center;
+}
+
+/*----- Signi Sign Up-----*/
+.sign-text{
+    font-size: 80px;;
+    margin-bottom: 60px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.sign-form{
+    padding: 30px;
+    background-color: rgba(240, 248, 255, 0.759);
+    border-radius: 100px;
+
+}
+.sign-items{
+    text-align: center;
+}
+
+/* ---- site map ---- */
+.site-ul{
+    list-style-type: none;
+}
+.site-links{
+    font-size: 20px;
+    text-decoration: none;
+    color:blue;
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+.admin-title{
+    font-size: 50px;
+}
+
+.admin-valid{
+    padding: 30px;
+    background-color: rgb(250, 232, 232);
+    margin-left: 200px;
+    margin-right: 700px;
+    border-radius: 80px;
+}

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adminstration Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body ">
+
+    <header class="container-fluid">
+        <nav class="navibar">
+        <a href="../images/logo.jpg"><img class="logo" src="../images/logo.jpg" ></a>
+        <a class="nav-item" href="../htmls/home.html" style="text-decoration: none;">Home</a>
+
+        </nav> 
+ 
+</header>
+
+    <div class="container-fluid">
+        <strong>
+        <h1 class="admi-title text-align" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: bold;color:rgba(198, 192, 14, 0.842);">Adminstration Page for DoBu Martial Arts</h1>
+        </strong>
+        <br />
+        <fieldset>
+            <legend>
+                <b> Users Lists</b>
+               
+            </legend>
+            <table class="table">
+                <thead>
+                    <tr class="table-active">
+                        <th>User ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Interested Classes</th>
+                        <th>Password</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tblbody">
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!----------    footer       ------>
+<footer class="container-fluid " style="background-color: beige;">
+
+    <div class="row">
+
+        <div class="col-sm-4">
+            <p style="margin-top: 20px;">Phone Numnber: xx xxxxxxxxxx</p>
+            <a href="mailto:dobumartialarts@outook.org" class="footer-link">Email Address: dobumartialarts@outook.org</a><br><br>
+            <p> &copy; copyright by DoBu Martial Arts Org</p>
+        </div>
+
+        <div class="col-sm-4">
+
+        </div>
+
+        <div class="col-sm-4" style="clear: both;">
+            <a href="https://www.facebook.com" ><img class="footer-logo" src="../images/facebook.png" alt="Facebook Logo"></a>
+            <a href="https://www.linkedin.com/login" ><img class="footer-logo" src="../images/linkedin.png" alt="LinkedIn Logo"></a>
+            <a href="https://www.instagram.com" ><img class="footer-logo" src="../images/instragram.png" alt="Instragram Logo"></a>
+        </div>
+      </div>
+
+</footer>
+<script>
+
+    bindUserData();
+    function addUserDataToLocalStorage(userObj) {
+
+        //already has data in localstorage then update it other create new one
+        var users = JSON.parse(localStorage.getItem('userData'));
+        if (users != null) {
+            users.push(userObj);
+           
+            localStorage.setItem('userData', JSON.stringify(users));
+        }
+        else {
+            var userData = new Array();
+            userData.push(userObj);
+            localStorage.setItem('userData', JSON.stringify(userData));
+
+        }
+    }
+
+    function updateDataToLocalStorage(userObj) {
+
+        var users = JSON.parse(localStorage.getItem('userData'));
+        if (users != null) {
+            var user = users.filter((x) => x.id == userObj.id).pop();
+            if (user != null) {
+                user.name = userObj.name;
+                user.email = userObj.email;
+                user.birthday= userObj.birthday;
+                user.gender = userObj.gender;
+                user.classes = userObj.classes;
+                user.password = userObj.password;
+                user.status = userObj.status;
+            }
+            localStorage.setItem('userData', JSON.stringify(users));
+        }
+    }
+
+    function deletedataFromLocalStorage(UserId) {
+
+        var users = JSON.parse(localStorage.getItem('userData'));
+        if (users != null) {
+            users.splice(users.findIndex(a => a.id === UserId), 1)
+            localStorage.setItem('userData', JSON.stringify(users));
+        }
+    }
+
+
+    function bindUserData() {
+        
+        var users = JSON.parse(localStorage.getItem('userData'));
+        if (users != null) {
+            document.getElementById('tblbody').innerHTML = "";
+            users.forEach(function (item, index) {
+                debugger;
+                var btnEditId = "btnedit" + item.id;
+                var btnDeleteId = "btndelete" + item.id;
+                var tableRow = "<tr class='table-info' Id='" + item.id + "'   data-CustomerID='" + item.id + "'data-name='" + item.name + "'data-email='" + item.email + "'data-birthday='" + item.birthday + "'data-gender='" + item.gender + "'data-classes='"+ item.classes + "'data-password='"+ item.password+ "'data-status='" + item.status + "'>"
+                    + "<td class='td-data'>" + item.id + "</td>"
+                    + "<td class='td-data'>" + item.name + "</td>"
+                    + "<td class='td-data'>" + item.email + "</td>"
+                    + "<td class='td-data'>" + item.birthday + "</td>"
+                    + "<td class='td-data'>" + item.gender + "</td>"
+                    + "<td class='td-data'>" + item.classes + "</td>"
+                    + "<td class='td-data'>" + item.password + "</td>"
+                    + "<td class='td-data'>" + item.status + "</td>"
+                    + "<td class='td-data'>" +
+                    "<button id='" + btnEditId + "' class='btn btn-warning btn-xs btn-editcustomer' onclick='showEditRow(" + item.id + ")'><i class='fa fa-pencil' aria-hidden='true'></i> Edit</button>" +
+                    "&nbsp;&nbsp;"+
+                    "<button id='" + btnDeleteId + "' class='btn btn-danger btn-xs btn-deleteCustomer' onclick='deleteRow(" + item.id + ")'><i class='fa fa-trash' aria-hidden='true'> Delete</button>"
+                    + "</td>"
+                    + "</tr>";
+                document.getElementById('tblbody').innerHTML += tableRow;
+            })
+        }
+        var AddRow = "<tr>"
+            + "<td class='td-data'></td>"
+            + "<td class='td-data'><input type='text' id='txtname' placeholder='name..'></td>"
+            + "<td class='td-data'><input type='email' id='txtemail' placeholder='email..'></td>"
+            + "<td class='td-data'><input size='10'  type='text' id='txtbirthday'></td>"
+            + "<td class='td-data'><select id='ddlgender'><option value='male'>male</option><option value='female'>female</option></select></td>"
+            +"<td class='td-data'><select id='ddclasses'><option value='Jiu-jitsu'>Jiu-jitsu</option><option value='Judo'>Judo</option><option value='Karate'>Karate</option><option value='Muay Thai'>Muay Thai</option></select></td>"
+            + "<td class='td-data'><input size='10'  type='password' id='txtpassword'></td>"
+            + "<td class='td-data'><select id='ddlstatus'><option value='active'>active</option><option value='inactive'>inactive</option></select></td>"
+            + "<td class='td-data'>" + "<button id= 'btnaddCustomer' onclick='addUser()' class='btn btn-success'> <i class='fa fa-plus-circle' aria-hidden='true'></i>Add</button>" + "</td>"
+            + "</tr>";
+        document.getElementById('tblbody').innerHTML += AddRow;
+    }
+
+    function GetUserID() {
+        const ID = Date.now();
+        return ID;
+    }
+
+    function addUser() {
+        var userId = GetUserID();
+        var txtname = document.getElementById("txtname").value;
+        if (!txtname) {
+            alert('Please enter name!')
+            return false;
+        }
+        var email = document.getElementById("txtemail").value;
+        if (!email) {
+            alert('Please enter email!')
+            return false;
+        }
+        var emailfilter = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!emailfilter.test(email)) {
+            alert('Please enter a valid email address!');
+            return false;
+        }
+
+        var gender = document.getElementById("ddlgender").value;
+        var status = document.getElementById("ddlstatus").value;
+        var age = document.getElementById("txtbirthday").value;
+        var classes = document.getElementById("ddclasses").value;
+        var password = document.getElementById("txtpassword").value;
+        var userObj = {
+            "id": userId,
+            "name": txtname,
+            "email": email,
+            "birthday": age,
+            "gender": gender,
+            "classes": classes,
+            "password": password,
+            "status": status
+        };
+        addUserDataToLocalStorage(userObj);
+        document.getElementById('txtname').value = "";
+        document.getElementById('txtemail').value = "";
+        bindUserData();
+    };
+
+    function showEditRow(UserID) {
+        var userRow = document.getElementById(UserID); //this gives tr of  whose button was clicked
+        var trdata = userRow.querySelectorAll(".td-data");
+        /*returns array of all elements with
+        "row-data" class within the row with given id*/
+        var userID = trdata[0].innerHTML;
+        var userName = trdata[1].innerHTML;
+        var useremail = trdata[2].innerHTML;
+        var userbirthday = trdata[3].innerHTML;
+        var userGender = trdata[4].innerHTML;
+        var userClasses = trdata[5].innerHTML;
+        var userPassword = trdata[6].innerHTML;
+        var userStatus = trdata[7].innerHTML;
+
+        trdata[0].innerHTML = '<input name="txtuserid"  disabled id="txtuserid" value="' + userID + '"/>';
+        trdata[1].innerHTML = '<input name="txtname" id="txtname" value="' + userName + '"/>';
+        trdata[2].innerHTML = '<input name="txtemail" id="txtemail" value="' + useremail + '"/>';
+        trdata[3].innerHTML = '<input name="txtbirthday" id="txtbirthday" value="' + userbirthday + '"/>';
+        if (userGender == 'male') {
+            trdata[4].innerHTML = '<select id="ddlgender"><option value="male">male</option><option value="female">female</option></select>';
+        }
+        else {
+            trdata[4].innerHTML = '<select id="ddlgender"><option value="female">female</option><option value="male">male</option></select>';
+        }
+
+        if (userClasses == 'Jiu-jitsu') {
+            trdata[5].innerHTML = '<select id="ddclasses"><option value="Jiu-jitsu">Jiu-jitsu</option><option value="Judo">Judo</option><option value="Karate">Karate</option><option value="Muay Thai">Muay Thai</option></select>';
+        }
+        else if (userClasses == 'Judo') {
+            trdata[5].innerHTML = '<select id="ddclasses"><option value="Judo">Judo</option><option value="Jiu-jitsu">Jiu-jitsu</option><option value="Karate">Karate</option><option value="Muay Thai">Muay Thai</option></select>';
+        }
+        else if (userClasses == 'Karate') {
+            trdata[5].innerHTML = '<select id="ddclasses"><option value="Karate">Karate</option><option value="Judo">Judo</option><option value="Jiu-jitsu">Jiu-jitsu</option><option value="Muay Thai">Muay Thai</option></select>';
+        }
+        else{
+            trdata[5].innerHTML = '<select id="ddclasses"><option value="Muay Thai">Muay Thai</option><option value="Karate">Karate</option><option value="Judo">Judo</option><option value="Jiu-jitsu">Jiu-jitsu</option></select>';
+        }
+        trdata[6].innerHTML = '<input name="txtpassword" id="txtpassword" value="' + userPassword + '"/>';
+        if (userStatus == 'active') {
+            trdata[7].innerHTML = '<select id="ddlstatus"><option value="active">active</option><option value="inactive">inactive</option></select>';
+        }
+        else {
+            trdata[7].innerHTML = '<select id="ddlstatus"><option value="inactive">inactive</option><option value="active">active</option></select>';
+        }
+
+        trdata[8].innerHTML =
+            "<button class='btn btn-primary btn-xs btn-updateCustomer' onclick='updateUser(" + userID + ")'>" +
+            "<i class='fa fa-pencil' aria-hidden='true'></i>Update</button>"
+            + "<button class='btn btn-warning btn-xs btn-cancelupdate' onclick='cancel(" + userID + ")'><i class='fa fa-times' aria-hidden='true'></i>Cancel</button>"
+            + "<button class='btn btn-danger btn-xs btn-deleteCustomer' onclick='deleteUser(" + userID + ")'>"
+            + "<i class='fa fa-trash' aria-hidden='true'></i>Delete</button>"
+    }
+    function cancel(UserID) {
+        debugger;
+        var btneditId = "btnedit" + UserID;
+        var btndeleteId = "btndelete" + UserID;
+
+        var CustomerRow = document.getElementById(UserID); //this gives tr of  whose button was clicked
+        var data = CustomerRow.querySelectorAll(".td-data");
+
+        var name = CustomerRow.getAttribute("data-name");
+        var email = CustomerRow.getAttribute("data-email");
+        var birthday = CustomerRow.getAttribute("data-birthday");
+        var gender = CustomerRow.getAttribute("data-gender");
+        var classes = CustomerRow.getAttribute("data-classes");
+        var password = CustomerRow.getAttribute("data-password");
+        var status = CustomerRow.getAttribute("data-status");
+
+        data[0].innerHTML = UserID;
+        data[1].innerHTML = name;
+        data[2].innerHTML = email;
+        data[3].innerHTML = birthday;
+        data[4].innerHTML = gender;
+        data[5].innerHTML = classes;
+        data[6].innerHTML = password;
+        data[7].innerHTML = status;
+        var actionbtn = "<button id='" + btneditId + "' class='btn btn-info btn-xs btn-editcustomer' onclick='showEditRow(" + UserID + ")'><i class='fa fa-pencil' aria-hidden='true'></i>Edit</button>" +
+            "<button id='" + btndeleteId + "' class='btn btn-danger btn-xs btn-deleteCustomer' onclick='deleteRow(" + UserID + ")'><i class='fa fa-trash' aria-hidden='true'>Delete</button>"
+        data[8].innerHTML = actionbtn;
+    }
+    function updateUser(UserID) {
+        var userRow = document.getElementById(UserID); //this gives tr of  whose button was clicked
+        var data = userRow.querySelectorAll(".td-data");
+        var name = data[1].querySelector("#txtname").value;
+        var email = data[2].querySelector("#txtemail").value;
+        var age = data[3].querySelector("#txtbirthday").value;
+        var gender = data[4].querySelector("#ddlgender").value;
+        var classes = data[5].querySelector("#ddclasses").value;
+        var password = data[6].querySelector("#txtpassword").value;
+        var status = data[7].querySelector("#ddlstatus").value;
+        var userObj = {
+            "id": UserID,
+            "name": name,
+            "email": email,
+            "birthday": age,
+            "gender": gender,
+            "classes": classes,
+            "password": password,
+            "status": status
+        };
+        updateDataToLocalStorage(userObj);
+        bindUserData();
+    }
+    function deleteRow(UserID) {
+        deletedataFromLocalStorage(UserID);
+        bindUserData();
+    }
+</script>
+
+</body>
+</html>

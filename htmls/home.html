@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../js/script.js"></script>
+        <title>Home Page</title>
+    </head>
+
+    <body >
+<!---------        header       ---------->
+    <header class="container-fluid">
+        <nav class="navibar">
+        <a href="#" id="toadminpage"><img class="logo" src="../images/logo.jpg" ></a>
+        <a class="nav-item" href="../htmls/home.html">Home</a>
+        <a class="nav-item" href="../htmls/Aboutus.html">About Us</a>
+        <a class="nav-item" href="../htmls/contactus.html">Contact Us</a>
+        <a class="nav-login" href="../htmls/register.html">Register</a>
+        <select class="select" onchange="location=this.value">
+            <option value="#">Memberships & Services</option>
+            <option value="../htmls/MartialArtsMembershipChoice.html" >Martial Arts Memberships</option>
+            <option value="../htmls/fitnessAndSelfdefence.html">Fitness & self-defences courses</option>
+        </select>
+
+
+
+        </nav> 
+ 
+    </header>
+
+<!-- Content -->
+<!-- Carousel -->
+    <section class="container-fluid classImages" >
+            <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+            <!-- Indicators/dots -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                </div>
+            
+            <!-- The slideshow/carousel -->
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        <img src="../images/jiu-jitsu.png" alt="Jiu-jitsu image" class="d-block" style="width:100%">
+                        <div class="carousel-caption">
+                        <h2 style="color:black">Jiu Jitsu</h2>
+                        <p> <a href="../htmls/MartialArtsMembershipChoice.html" class="btn btn-warning">To be Memberships ></a></p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="../images/Judo.jpg" alt="Judo image" class="d-block" style="width:100%">
+                        <div class="carousel-caption">
+                        <h2>Judo</h2>
+                        <p> <a href="../htmls/MartialArtsMembershipChoice.html" class="btn btn-warning">To be Memberships ></a></p>
+                        </div> 
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="../images/karate.jpg" alt="Karate" class="d-block" style="width:100%">
+                        <div class="carousel-caption">
+                        <h2>Karate</h2>
+                        <p> <a href="../htmls/MartialArtsMembershipChoice.html" class="btn btn-warning">To be Memberships ></a></p>
+                        </div>  
+                    </div>
+
+                    
+                </div>
+            
+            <!-- Left and right controls/icons -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev" style="background-color:rgb(220, 207, 207);" >
+                <span class="carousel-control-prev-icon" ></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next" style="background-color: rgb(220, 207, 207);">
+                <span class="carousel-control-next-icon " ></span>
+                </button>
+            </div>
+    </section>
+    <br><br>
+    <section class="container-fluid grid-container">
+
+                <figure class="grid-item">
+                    <iframe class="resp-iframe " max-width="50%" height="50%" src="https://www.youtube.com/embed/3pij53sc8Ys" title="YouTube video player" frameborder="0" allow="accelerometer;autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"allowfullscreen >
+                    </iframe>
+                    <br><br>
+        
+                    <figcaption style="text-align:bottom">
+                        <h5>Vlog</h5>
+                        <p>We can see the facillities offered by DoBu Martial Arts<br>
+                             including good instructors, enough space for training, sufficient equipments</p>
+                    </figcaption>
+        
+        
+                </figure>
+
+                <figure class="grid-item">
+
+                    <img src="../images/InstructorCP.jpg" width="50%" height="50%">
+                    <br><br>
+                    <figcaption style="text-align:bottom">
+                        <h3>You can see our instructors' Information</h3>
+                        <br><br>
+                        <a class="btn btn-warning" href="../htmls/instructor.html">See Info ></a>
+                    </figcaption>
+        
+                </figure>
+
+                <figure class="grid-item">
+
+                    <img src="../images/register.png" width="50%" height="50%">
+                    <br><br>
+        
+                    <figcaption style="text-align:bottom">
+                        <h3>If you are interested, just register now</h3>
+                        <br><br>
+                        <a class="btn btn-success" href="../htmls/register.html">Register Now ></a>
+                    </figcaption>
+        
+                </figure>
+
+    </section>
+<!-- Content end -->
+<!----------    footer       ------>
+    <footer class="container-fluid" style="background-color: beige;">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <p style="margin-top: 20px;">Phone Numnber: xx xxxxxxxxxx</p>
+                <a href="mailto:dobumartialarts@outook.org" class="footer-link">Email Address: dobumartialarts@outook.org</a><br><br>
+                <p> &copy; copyright by DoBu Martial Arts Org</p>
+            </div>
+
+            <div class="col-sm-4">
+                <ul class="footer-list" style="margin-top: 10px;" >
+                    <li><a class="footer-link" href="../htmls/MartialArtsMembershipChoice.html">Martial Arts Membershiops</a></li>
+                    <li><a class="footer-link" href="../htmls/fitnessAndSelfdefence.html">Fitness training and self defence cource</a></li>
+                    <li><a class="footer-link" href="../htmls/instructor.html">Instructors</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4" style="clear: both;">
+                <a href="https://www.facebook.com" ><img class="footer-logo" src="../images/facebook.png" alt="Facebook Logo"></a>
+                <a href="https://www.linkedin.com/login" ><img class="footer-logo" src="../images/linkedin.png" alt="LinkedIn Logo"></a>
+                <a href="https://www.instagram.com" ><img class="footer-logo" src="../images/instragram.png" alt="Instragram Logo"></a>
+                <br><br><br><br>
+                <div style="float: right;">
+                <a class="footer-link " href="#">Privacy&Policy</a>
+                <a class="footer-link" href="../htmls/sitemap.html">Site Map</a>
+                </div>
+            </div>
+          </div>
+
+    </footer>
+
+    </body>
+</html>
